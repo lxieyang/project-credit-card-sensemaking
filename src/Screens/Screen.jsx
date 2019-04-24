@@ -10,7 +10,16 @@ class Screen extends Component {
     return (
       <div>
         <div className="Topbar">
-          <div style={{ marginLeft: '8px' }}>
+          <div
+            style={{
+              marginLeft: '8px',
+              width: '44px',
+              height: '44px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
             <ArrowLeftCircle
               style={{ fontSize: '44px', color: 'white', cursor: 'pointer' }}
               onClick={() => {
