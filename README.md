@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9c029ded-f639-45ae-8cec-5b1920b2b5c0/deploy-status)](https://app.netlify.com/sites/sensemaking-credit-card-search/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
