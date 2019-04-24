@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import './LandingScreen.css';
 
 const LogoContainer = styled.div`
-  margin-top: 8vh;
+  margin-top: 6rem;
   @media (max-width: 600px) {
-    margin-top: 6vh;
+    margin-top: 3rem;
   }
 `;
 
@@ -23,11 +23,12 @@ const LogoImg = styled.img`
 const TitleContainer = styled.div`
   font-size: 6rem;
   font-weight: 700;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   color: #fff;
-  /* @media (max-width: 600px) {
-    margin-top: 6rem;
-  } */
+
+  @media (max-width: 600px) {
+    font-size: 4rem;
+  }
 `;
 
 const SubtitleContainer = styled.div`
@@ -35,10 +36,14 @@ const SubtitleContainer = styled.div`
   font-weight: 400;
   margin-top: 1rem;
   color: #fff;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const StartButtonContainer = styled.div`
-  margin-top: 30vh;
+  margin-top: 20rem;
 
   width: 100%;
   display: flex;
@@ -46,11 +51,11 @@ const StartButtonContainer = styled.div`
   align-items: center;
 
   @media (max-width: 1200px) {
-    margin-top: 20vh;
+    margin-top: 14rem;
   }
 
   @media (max-width: 600px) {
-    margin-top: 14vh;
+    margin-top: 10rem;
   }
 `;
 
