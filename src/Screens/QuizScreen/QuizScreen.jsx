@@ -73,9 +73,14 @@ class QuizScreen extends Component {
   };
 
   handleNext = event => {
-    this.props.history.push(
-      appRoutes.userTypeRecommendation + '?rec=' + 'novice'
-    );
+    let rec = 'novice';
+    if (this.state.selfRating < 4) {
+      rec = 'novice';
+    } else {
+      rec = 'expert';
+    }
+
+    this.props.history.push(appRoutes.userTypeRecommendation + '?rec=' + rec);
   };
 
   render() {
