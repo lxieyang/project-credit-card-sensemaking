@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Radio } from 'antd';
+import { Radio, Badge } from 'antd';
 import styled from 'styled-components';
 import Screen from '../Screen';
 import { incomeRanges, creditScoreRanges } from '../../shared/constants';
@@ -33,10 +33,25 @@ const NextButtonContainer = styled.div`
   align-items: center;
 `;
 
+const Label = styled.div`
+  display: inline-block;
+  margin: 0 10px;
+`;
+
 class QuizScreen extends Component {
   state = {
+    selfRating: null,
     incomeRange: null,
     creditScoreRage: null
+  };
+
+  handleSelfRatingChange = event => {
+    let val = event.target.value;
+    if (this.state.selfRating !== val) {
+      this.setState({ selfRating: val });
+    } else {
+      this.setState({ selfRating: null });
+    }
   };
 
   handleIncomeRangeChange = event => {
@@ -64,7 +79,7 @@ class QuizScreen extends Component {
   };
 
   render() {
-    const { incomeRange, creditScoreRage } = this.state;
+    const { selfRating, incomeRange, creditScoreRage } = this.state;
 
     return (
       <Screen>
@@ -80,7 +95,36 @@ class QuizScreen extends Component {
           </AlertContainer>
 
           <QuizQuestionContainer>
-            <h2>1. Annual Income</h2>
+            <h2>1. Self-rated Expertise</h2>
+            <h6>
+              On a scale of 1 to 7, how would you rate your own expertise in
+              credit card search?
+            </h6>
+            <RadioGroupContainer>
+              <Label>
+                <span className="badge badge-success">Novice</span>
+              </Label>
+              <Radio.Group
+                value={selfRating}
+                buttonStyle="solid"
+                onChange={this.handleSelfRatingChange}
+              >
+                {[1, 2, 3, 4, 5, 6, 7].map((range, idx) => {
+                  return (
+                    <Radio.Button value={range} key={idx}>
+                      {range}
+                    </Radio.Button>
+                  );
+                })}
+              </Radio.Group>
+              <Label>
+                <span className="badge badge-warning">Expert</span>
+              </Label>
+            </RadioGroupContainer>
+          </QuizQuestionContainer>
+
+          <QuizQuestionContainer>
+            <h2>2. Annual Income</h2>
             <h6>Please specify you annual income range:</h6>
             <RadioGroupContainer>
               <Radio.Group
@@ -100,7 +144,7 @@ class QuizScreen extends Component {
           </QuizQuestionContainer>
 
           <QuizQuestionContainer>
-            <h2>2. FICO Credit Score</h2>
+            <h2>3. FICO Credit Score</h2>
             <h6>Please specify you FICO credit score range:</h6>
             <RadioGroupContainer>
               <Radio.Group
@@ -121,7 +165,7 @@ class QuizScreen extends Component {
 
           <NextButtonContainer>
             <NextButton
-              disabled={incomeRange === null || creditScoreRage === null}
+              disabled={selfRating === null || incomeRange === null}
               handleNext={this.handleNext}
             />
           </NextButtonContainer>

@@ -10,8 +10,8 @@ export const incomeRanges = [
 
 export const creditScoreRanges = [
   '300 - 579',
-  '580 - 669',
-  '670 - 739',
-  '740 - 799',
+  '580 - 689',
+  '690 - 719',
+  '720 - 799',
   '800 - 850'
 ];
