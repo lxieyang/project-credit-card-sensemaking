@@ -1,12 +1,12 @@
-import React from "react";
-import { Route, Link } from "react-router-dom";
-import { AnimatedSwitch, spring } from "react-router-transition";
-import DocumentTitle from "react-document-title";
+import React from 'react';
+import { Route, Link } from 'react-router-dom';
+import { AnimatedSwitch, spring } from 'react-router-transition';
+import DocumentTitle from 'react-document-title';
 
-import LandingScreen from "./Screens/LandingScreen/LandingScreen";
-import QuizScreen from "./Screens/QuizScreen/QuizScreen";
+import LandingScreen from './Screens/LandingScreen/LandingScreen';
+import QuizScreen from './Screens/QuizScreen/QuizScreen';
 
-import "./App.css";
+import './App.css';
 
 function glide(val) {
   return spring(val, {
@@ -34,11 +34,11 @@ function App() {
         render={({ location }) => (
           <AnimatedSwitch
             {...pageTransitions}
-            runOnMount={location.pathname === "/"}
+            runOnMount={location.pathname === '/'}
             mapStyles={styles => ({
               transform: `translateX(${styles.offset}%)`
             })}
-            className="switch-wrapper"
+            // className="switch-wrapper"
           >
             <Route exact path="/" component={LandingScreen} />
             <Route path="/quiz/" component={QuizScreen} />

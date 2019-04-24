@@ -1,13 +1,15 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Screen from '../Screen';
 
 class QuizScreen extends Component {
   render() {
     return (
-      <div>
-        <h1>quiz screen</h1>
-        <Link to="/">Home</Link>
-      </div>
+      <Screen>
+        <div className="container">
+          <h1>Quiz Screen</h1>
+        </div>
+      </Screen>
     );
   }
 }
