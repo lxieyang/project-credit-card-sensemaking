@@ -6,9 +6,9 @@ import styled from 'styled-components';
 import './LandingScreen.css';
 
 const LogoContainer = styled.div`
-  margin-top: 6rem;
+  margin-top: 4rem;
   @media (max-width: 600px) {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 `;
 
@@ -43,7 +43,7 @@ const SubtitleContainer = styled.div`
 `;
 
 const StartButtonContainer = styled.div`
-  margin-top: 20rem;
+  margin-top: 10rem;
 
   width: 100%;
   display: flex;
@@ -51,11 +51,11 @@ const StartButtonContainer = styled.div`
   align-items: center;
 
   @media (max-width: 1200px) {
-    margin-top: 14rem;
+    margin-top: 6rem;
   }
 
   @media (max-width: 600px) {
-    margin-top: 10rem;
+    margin-top: 3rem;
   }
 `;
 
