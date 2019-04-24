@@ -7,9 +7,14 @@
     "antd": "^3.16.5",
     "mdi-material-ui": "^5.11.0",
     "react": "^16.8.6",
+    "react-document-title": "^2.0.3",
     "react-dom": "^16.8.6",
+    "react-favicon": "0.0.14",
+    "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.0"
+    "react-router-transition": "^1.3.0",
+    "react-scripts": "3.0.0",
+    "styled-components": "^4.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
