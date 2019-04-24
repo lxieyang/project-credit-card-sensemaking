@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 
 import { Link } from 'react-router-dom';
-import ArrowLeftCircle from 'mdi-material-ui/ArrowLeftCircle';
+import { ArrowLeftCircle } from 'mdi-material-ui';
 import './Screen.css';
 
 class Screen extends Component {
