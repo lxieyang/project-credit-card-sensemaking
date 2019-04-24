@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets//images/credit-card-transparent-background.png';
 import styled from 'styled-components';
 
+import appRoutes from '../../shared/appRoutes';
+
 import './LandingScreen.css';
 
 const LogoContainer = styled.div`
-  margin-top: 4rem;
+  margin-top: 5rem;
   @media (max-width: 600px) {
     margin-top: 2rem;
   }
@@ -81,7 +83,7 @@ class LandingScreen extends Component {
           A new way to search for credit cards.
         </SubtitleContainer>
         <StartButtonContainer>
-          <Link to="/quiz" className="GetStartedButton">
+          <Link to={appRoutes.quiz} className="GetStartedButton">
             Get Started
           </Link>
         </StartButtonContainer>

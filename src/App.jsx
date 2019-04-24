@@ -5,8 +5,12 @@ import DocumentTitle from 'react-document-title';
 
 import LandingScreen from './Screens/LandingScreen/LandingScreen';
 import QuizScreen from './Screens/QuizScreen/QuizScreen';
+import UserCategoryRecScreen from './Screens/UserCategoryRecScreen/UserCategoryRecScreen';
+
+import './shared/appRoutes';
 
 import './App.css';
+import appRoutes from './shared/appRoutes';
 
 function glide(val) {
   return spring(val, {
@@ -34,14 +38,18 @@ function App() {
         render={({ location }) => (
           <AnimatedSwitch
             {...pageTransitions}
-            runOnMount={location.pathname === '/'}
+            runOnMount={location.pathname === appRoutes.home}
             mapStyles={styles => ({
               transform: `translateX(${styles.offset}%)`
             })}
             // className="switch-wrapper"
           >
-            <Route exact path="/" component={LandingScreen} />
-            <Route path="/quiz/" component={QuizScreen} />
+            <Route exact path={appRoutes.home} component={LandingScreen} />
+            <Route path={appRoutes.quiz} component={QuizScreen} />
+            <Route
+              path={appRoutes.userTypeRecommendation}
+              component={UserCategoryRecScreen}
+            />
           </AnimatedSwitch>
         )}
       />
