@@ -55,7 +55,7 @@ class QuizScreen extends Component {
   };
 
   handleIncomeRangeChange = event => {
-    let val = event.target.value;
+    let val = parseInt(event.target.value);
     if (this.state.incomeRange !== val) {
       this.setState({ incomeRange: val });
     } else {
@@ -64,7 +64,7 @@ class QuizScreen extends Component {
   };
 
   handleCreditScoreRangeChange = event => {
-    let val = event.target.value;
+    let val = parseInt(event.target.value);
     if (this.state.creditScoreRage !== val) {
       this.setState({ creditScoreRage: val });
     } else {
@@ -74,7 +74,7 @@ class QuizScreen extends Component {
 
   handleNext = event => {
     let rec = 'novice';
-    if (this.state.selfRating < 4) {
+    if (this.state.selfRating < 4 && this.state.creditScoreRage < 2) {
       rec = 'novice';
     } else {
       rec = 'expert';
@@ -144,7 +144,7 @@ class QuizScreen extends Component {
                 {incomeRanges.map((range, idx) => {
                   return (
                     <Radio.Button
-                      value={range}
+                      value={idx}
                       key={idx}
                       onClick={this.handleIncomeRangeChange}
                     >
@@ -157,8 +157,8 @@ class QuizScreen extends Component {
           </QuizQuestionContainer>
 
           <QuizQuestionContainer>
-            <h2>3. FICO Credit Score</h2>
-            <h6>Please specify you FICO credit score range:</h6>
+            <h2>3. Credit Score</h2>
+            <h6>Please specify you credit score range:</h6>
             <RadioGroupContainer>
               <Radio.Group
                 value={creditScoreRage}
@@ -168,7 +168,7 @@ class QuizScreen extends Component {
                 {creditScoreRanges.map((range, idx) => {
                   return (
                     <Radio.Button
-                      value={range}
+                      value={idx}
                       key={idx}
                       onClick={this.handleCreditScoreRangeChange}
                     >
