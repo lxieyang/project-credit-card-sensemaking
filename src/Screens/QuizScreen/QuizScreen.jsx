@@ -31,6 +31,7 @@ const NextButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
 `;
 
 const Label = styled.div`
@@ -107,7 +108,12 @@ class QuizScreen extends Component {
             </h6>
             <RadioGroupContainer>
               <Label>
-                <span className="badge badge-success">Novice</span>
+                <span
+                  className="badge badge-success"
+                  style={{ backgroundColor: '#63C9A4' }}
+                >
+                  Novice
+                </span>
               </Label>
               <Radio.Group
                 value={selfRating}
