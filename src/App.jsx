@@ -6,6 +6,8 @@ import DocumentTitle from 'react-document-title';
 import LandingScreen from './Screens/LandingScreen/LandingScreen';
 import QuizScreen from './Screens/QuizScreen/QuizScreen';
 import UserCategoryRecScreen from './Screens/UserCategoryRecScreen/UserCategoryRecScreen';
+import NoviceEducationScreen from './Screens/NoviceScreens/NoviceEducationScreen/NoviceEducationScreen';
+import ExpertChooseCategoriesScreen from './Screens/ExpertScreens/ExpertChooseCategoriesScreen/ExpertChooseCategoriesScreen';
 
 import './shared/appRoutes';
 
@@ -49,6 +51,14 @@ function App() {
             <Route
               path={appRoutes.userTypeRecommendation}
               component={UserCategoryRecScreen}
+            />
+            <Route
+              path={appRoutes.noviceEducation}
+              component={NoviceEducationScreen}
+            />
+            <Route
+              path={appRoutes.expertChooseBenefitCategory}
+              component={ExpertChooseCategoriesScreen}
             />
           </AnimatedSwitch>
         )}

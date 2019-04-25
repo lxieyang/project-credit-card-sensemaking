@@ -68,6 +68,11 @@ class UserCategoryRecScreen extends Component {
 
   handleCategoryClick = (event, category) => {
     this.setState({ recUserType: category });
+    if (category === 'novice') {
+      this.props.history.push(appRoutes.noviceEducation);
+    } else if (category === 'expert') {
+      this.props.history.push(appRoutes.expertChooseBenefitCategory);
+    }
   };
 
   render() {
@@ -76,8 +81,8 @@ class UserCategoryRecScreen extends Component {
       <Screen>
         <div className="container">
           <h2>
-            Based on your answers, we would recommend choosing the {recUserType}{' '}
-            interface:
+            Based on your answers, we would recommend choosing the{' '}
+            {recUserType || 'novice'} interface:
           </h2>
 
           <div className="row" style={{ marginTop: '40px' }}>
