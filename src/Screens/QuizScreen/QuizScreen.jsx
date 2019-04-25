@@ -46,7 +46,7 @@ class QuizScreen extends Component {
   };
 
   handleSelfRatingChange = event => {
-    let val = event.target.value;
+    let val = parseInt(event.target.value);
     if (this.state.selfRating !== val) {
       this.setState({ selfRating: val });
     } else {
@@ -112,11 +112,15 @@ class QuizScreen extends Component {
               <Radio.Group
                 value={selfRating}
                 buttonStyle="solid"
-                onChange={this.handleSelfRatingChange}
+                // onChange={this.handleSelfRatingChange}
               >
                 {[1, 2, 3, 4, 5, 6, 7].map((range, idx) => {
                   return (
-                    <Radio.Button value={range} key={idx}>
+                    <Radio.Button
+                      value={range}
+                      key={idx}
+                      onClick={this.handleSelfRatingChange}
+                    >
                       {range}
                     </Radio.Button>
                   );
@@ -135,11 +139,15 @@ class QuizScreen extends Component {
               <Radio.Group
                 value={incomeRange}
                 buttonStyle="solid"
-                onChange={this.handleIncomeRangeChange}
+                // onChange={this.handleIncomeRangeChange}
               >
                 {incomeRanges.map((range, idx) => {
                   return (
-                    <Radio.Button value={range} key={idx}>
+                    <Radio.Button
+                      value={range}
+                      key={idx}
+                      onClick={this.handleIncomeRangeChange}
+                    >
                       {range}
                     </Radio.Button>
                   );
@@ -155,11 +163,15 @@ class QuizScreen extends Component {
               <Radio.Group
                 value={creditScoreRage}
                 buttonStyle="solid"
-                onChange={this.handleCreditScoreRangeChange}
+                // onChange={this.handleCreditScoreRangeChange}
               >
                 {creditScoreRanges.map((range, idx) => {
                   return (
-                    <Radio.Button value={range} key={idx}>
+                    <Radio.Button
+                      value={range}
+                      key={idx}
+                      onClick={this.handleCreditScoreRangeChange}
+                    >
                       {range}
                     </Radio.Button>
                   );
