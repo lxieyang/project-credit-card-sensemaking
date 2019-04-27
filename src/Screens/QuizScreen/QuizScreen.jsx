@@ -75,7 +75,7 @@ class QuizScreen extends Component {
 
   handleNext = event => {
     let rec = 'novice';
-    if (this.state.selfRating < 4 && this.state.creditScoreRage < 2) {
+    if (this.state.selfRating < 4 || this.state.creditScoreRage === 0) {
       rec = 'novice';
     } else {
       rec = 'expert';
