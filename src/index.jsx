@@ -14,10 +14,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import quizReducer from './store/reducers/quiz';
 import userTypeReducer from './store/reducers/userTypes';
+import benefitsReducer from './store/reducers/benefits';
 
 const rootReducer = combineReducers({
   quiz: quizReducer,
-  userType: userTypeReducer
+  userType: userTypeReducer,
+  benefits: benefitsReducer
 });
 
 const logger = store => {
