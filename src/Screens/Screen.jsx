@@ -8,6 +8,9 @@ import './Screen.css';
 
 import appRoutes from '../shared/appRoutes';
 
+import { connect } from 'react-redux';
+import * as actionCreators from '../store/actions/index';
+
 const LogoContainer = styled.div`
   margin-left: 8px;
   width: 44px;
@@ -45,8 +48,10 @@ class Screen extends Component {
 
   handleSwitch = e => {
     if (this.state.mode === 'novice') {
+      this.props.setChosenUserType('expert');
       this.props.history.push(appRoutes.expertChooseBenefitCategory);
     } else if (this.state.mode === 'expert') {
+      this.props.setChosenUserType('novice');
       this.props.history.push(appRoutes.noviceEducation);
     }
   };
@@ -77,4 +82,15 @@ class Screen extends Component {
   }
 }
 
-export default withRouter(Screen);
+const mapDispatchToProps = dispatch => {
+  return {
+    setChosenUserType: val => dispatch(actionCreators.setChosenUserType(val))
+  };
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(Screen)
+);

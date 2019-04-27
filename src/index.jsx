@@ -13,9 +13,11 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import quizReducer from './store/reducers/quiz';
+import userTypeReducer from './store/reducers/userTypes';
 
 const rootReducer = combineReducers({
-  quiz: quizReducer
+  quiz: quizReducer,
+  userType: userTypeReducer
 });
 
 const logger = store => {

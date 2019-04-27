@@ -87,8 +87,10 @@ class QuizScreen extends Component {
     let rec = 'novice';
     if (this.props.selfRating < 4 || this.props.creditScoreRage === 0) {
       rec = 'novice';
+      this.props.setRecommendedUserType('novice');
     } else {
       rec = 'expert';
+      this.props.setRecommendedUserType('expert');
     }
 
     this.props.history.push(appRoutes.userTypeRecommendation + '?rec=' + rec);
@@ -226,7 +228,9 @@ const mapDispatchToProps = dispatch => {
     setAnnualIncomeRange: val =>
       dispatch(actionCreators.setAnnualIncomeRange(val)),
     setCreditScoreRange: val =>
-      dispatch(actionCreators.setCreditScoreRange(val))
+      dispatch(actionCreators.setCreditScoreRange(val)),
+    setRecommendedUserType: val =>
+      dispatch(actionCreators.setRecommendedUserType(val))
   };
 };
 

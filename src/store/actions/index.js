@@ -1,1 +1,2 @@
-export * from './quiz';
+export * from './actions/quiz';
+export * from './actions/userType';

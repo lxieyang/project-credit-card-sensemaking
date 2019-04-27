@@ -6,6 +6,9 @@ import Screen from '../Screen';
 
 import appRoutes from '../../shared/appRoutes';
 
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/index';
+
 const CategoryContainer = styled.div`
   cursor: pointer;
 
@@ -85,8 +88,10 @@ class UserCategoryRecScreen extends Component {
   handleCategoryClick = (event, category) => {
     this.setState({ recUserType: category });
     if (category === 'novice') {
+      this.props.setChosenUserType('novice');
       this.props.history.push(appRoutes.noviceEducation);
     } else if (category === 'expert') {
+      this.props.setChosenUserType('expert');
       this.props.history.push(appRoutes.expertChooseBenefitCategory);
     }
   };
@@ -182,4 +187,15 @@ class UserCategoryRecScreen extends Component {
   }
 }
 
-export default withRouter(UserCategoryRecScreen);
+const mapDispatchToProps = dispatch => {
+  return {
+    setChosenUserType: val => dispatch(actionCreators.setChosenUserType(val))
+  };
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(UserCategoryRecScreen)
+);
