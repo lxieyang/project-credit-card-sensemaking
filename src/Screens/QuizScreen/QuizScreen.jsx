@@ -43,42 +43,49 @@ const Label = styled.div`
 `;
 
 class QuizScreen extends Component {
-  state = {
-    selfRating: null,
-    incomeRange: null,
-    creditScoreRage: null
-  };
+  // state = {
+  //   selfRating: null,
+  //   incomeRange: null,
+  //   creditScoreRage: null
+  // };
 
   handleSelfRatingChange = event => {
     let val = parseInt(event.target.value);
-    if (this.state.selfRating !== val) {
-      this.setState({ selfRating: val });
-    } else {
-      this.setState({ selfRating: null });
-    }
+    this.props.setSelfRating(this.props.selfRating !== val ? val : null);
+    // if (this.props.selfRating !== val) {
+    //   this.setState({ selfRating: val });
+    // } else {
+    //   this.setState({ selfRating: null });
+    // }
   };
 
   handleIncomeRangeChange = event => {
     let val = parseInt(event.target.value);
-    if (this.state.incomeRange !== val) {
-      this.setState({ incomeRange: val });
-    } else {
-      this.setState({ incomeRange: null });
-    }
+    this.props.setAnnualIncomeRange(
+      this.props.incomeRange !== val ? val : null
+    );
+    // if (this.props.incomeRange !== val) {
+    //   this.setState({ incomeRange: val });
+    // } else {
+    //   this.setState({ incomeRange: null });
+    // }
   };
 
   handleCreditScoreRangeChange = event => {
     let val = parseInt(event.target.value);
-    if (this.state.creditScoreRage !== val) {
-      this.setState({ creditScoreRage: val });
-    } else {
-      this.setState({ creditScoreRage: null });
-    }
+    this.props.setCreditScoreRange(
+      this.props.creditScoreRage !== val ? val : null
+    );
+    // if (this.props.creditScoreRage !== val) {
+    //   this.setState({ creditScoreRage: val });
+    // } else {
+    //   this.setState({ creditScoreRage: null });
+    // }
   };
 
   handleNext = event => {
     let rec = 'novice';
-    if (this.state.selfRating < 4 || this.state.creditScoreRage === 0) {
+    if (this.props.selfRating < 4 || this.props.creditScoreRage === 0) {
       rec = 'novice';
     } else {
       rec = 'expert';
@@ -88,7 +95,7 @@ class QuizScreen extends Component {
   };
 
   render() {
-    const { selfRating, incomeRange, creditScoreRage } = this.state;
+    const { selfRating, incomeRange, creditScoreRage } = this.props;
 
     return (
       <Screen>
@@ -215,9 +222,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setSelfRating: () => dispatch(actionCreators.setSelfRatedExpertise),
-    setAnnualIncomeRange: () => dispatch(actionCreators.setAnnualIncomeRange),
-    setCreditScoreRange: () => dispatch(actionCreators.setCreditScoreRange)
+    setSelfRating: val => dispatch(actionCreators.setSelfRatedExpertise(val)),
+    setAnnualIncomeRange: val =>
+      dispatch(actionCreators.setAnnualIncomeRange(val)),
+    setCreditScoreRange: val =>
+      dispatch(actionCreators.setCreditScoreRange(val))
   };
 };
 
