@@ -188,7 +188,11 @@ class QuizScreen extends Component {
 
           <NextButtonContainer>
             <NextButton
-              disabled={selfRating === null || incomeRange === null}
+              disabled={
+                selfRating === null ||
+                incomeRange === null ||
+                creditScoreRage === null
+              }
               handleNext={this.handleNext}
             />
           </NextButtonContainer>

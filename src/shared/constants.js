@@ -22,6 +22,7 @@ export const incomeRanges = [
 ];
 
 export const creditScoreRanges = [
+  "I don't know",
   '300 - 579',
   '580 - 689',
   '690 - 719',
