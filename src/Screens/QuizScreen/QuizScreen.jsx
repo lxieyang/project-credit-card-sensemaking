@@ -140,7 +140,7 @@ class QuizScreen extends Component {
 
           <QuizQuestionContainer>
             <h2>2. Annual Income</h2>
-            <h6>Please specify you annual income range:</h6>
+            <h6>Please specify your annual income range:</h6>
             <RadioGroupContainer>
               <Radio.Group
                 value={incomeRange}
@@ -164,7 +164,7 @@ class QuizScreen extends Component {
 
           <QuizQuestionContainer>
             <h2>3. Credit Score</h2>
-            <h6>Please specify you credit score range:</h6>
+            <h6>Please specify your credit score range:</h6>
             <RadioGroupContainer>
               <Radio.Group
                 value={creditScoreRage}
