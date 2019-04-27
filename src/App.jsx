@@ -1,7 +1,7 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { AnimatedSwitch, spring } from 'react-router-transition';
-import DocumentTitle from 'react-document-title';
+// import DocumentTitle from 'react-document-title';
 
 import LandingScreen from './Screens/LandingScreen/LandingScreen';
 import QuizScreen from './Screens/QuizScreen/QuizScreen';

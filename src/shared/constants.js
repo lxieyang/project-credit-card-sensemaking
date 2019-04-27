@@ -2,7 +2,7 @@ import NoAnnualFeeIcon from '../assets/images/benefit-no-annual-fee.png';
 import CashBackIcon from '../assets/images/benefit-cash-back.png';
 import TravelIcon from '../assets/images/benefit-travel.png';
 import GasIcon from '../assets/images/benefit-gas.png';
-import ZeroAPRIcon from '../assets/images/benefit-0-apr.png';
+// import ZeroAPRIcon from '../assets/images/benefit-0-apr.png';
 import GroceryIcon from '../assets/images/benefit-grocery.png';
 import StudentIcon from '../assets/images/benefit-student.png';
 import CreditBuilding from '../assets/images/benefit-credit-building.png';

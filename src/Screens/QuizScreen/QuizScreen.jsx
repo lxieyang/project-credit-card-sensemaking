@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Radio, Badge } from 'antd';
+import { Radio } from 'antd';
 import styled from 'styled-components';
 import Screen from '../Screen';
 import { incomeRanges, creditScoreRanges } from '../../shared/constants';
 import NextButton from '../../components/UI/Buttons/NextButton/NextButton';
 
 import appRoutes from '../../shared/appRoutes';
+
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/index';
 
 const AlertContainer = styled.div`
   margin-top: 20px;
@@ -202,4 +205,25 @@ class QuizScreen extends Component {
   }
 }
 
-export default withRouter(QuizScreen);
+const mapStateToProps = state => {
+  return {
+    selfRating: state.quiz.selfRating,
+    incomeRange: state.quiz.incomeRange,
+    creditScoreRage: state.quiz.creditScoreRage
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setSelfRating: () => dispatch(actionCreators.setSelfRatedExpertise),
+    setAnnualIncomeRange: () => dispatch(actionCreators.setAnnualIncomeRange),
+    setCreditScoreRange: () => dispatch(actionCreators.setCreditScoreRange)
+  };
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(QuizScreen)
+);

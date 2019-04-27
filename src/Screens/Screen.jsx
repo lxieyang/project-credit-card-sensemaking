@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { ArrowLeftCircle } from 'mdi-material-ui';
 import './Screen.css';
 
