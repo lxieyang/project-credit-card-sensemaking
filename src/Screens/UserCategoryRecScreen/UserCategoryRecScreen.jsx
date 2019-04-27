@@ -45,11 +45,27 @@ const CategoryTitle = styled.div`
 `;
 
 const CategoryContentContainer = styled.div`
-  height: 200px;
+  /* height: 200px; */
   width: 100%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+`;
+
+const CategoryContentPrompt = styled.div`
+  width: 100%;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const CategoryContent = styled.div`
+  padding-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 `;
 
 class UserCategoryRecScreen extends Component {
@@ -80,6 +96,7 @@ class UserCategoryRecScreen extends Component {
     return (
       <Screen>
         <div className="container">
+          <br />
           <h2>
             Based on your answers, we would recommend choosing the{' '}
             {recUserType || 'novice'} interface:
@@ -104,7 +121,20 @@ class UserCategoryRecScreen extends Component {
                     Novice
                   </CategoryTitle>
                   <CategoryContentContainer>
-                    <p style={{ color: 'red' }}>what to put here</p>
+                    <CategoryContentPrompt>
+                      <h5>
+                        We think that at least of one these categories describes
+                        you:
+                      </h5>
+                    </CategoryContentPrompt>
+
+                    <CategoryContent>
+                      <ul style={{ fontSize: '1.2rem' }}>
+                        <li>Minimal Credit History</li>
+                        <li>Limited Credit Score</li>
+                        <li>Learning about Credit Card Benefits</li>
+                      </ul>
+                    </CategoryContent>
                   </CategoryContentContainer>
                 </CategoryCard>
               </CategoryContainer>
@@ -128,7 +158,19 @@ class UserCategoryRecScreen extends Component {
                     Expert
                   </CategoryTitle>
                   <CategoryContentContainer>
-                    <p style={{ color: 'red' }}>what to put here</p>
+                    <CategoryContentPrompt>
+                      <h5>
+                        We think that at least of one these categories describes
+                        you:
+                      </h5>
+                    </CategoryContentPrompt>
+                    <CategoryContent>
+                      <ul style={{ fontSize: '1.2rem' }}>
+                        <li>Extensive Credit History</li>
+                        <li>High Credit Score</li>
+                        <li>Take Advantage of Credit Card Benefits</li>
+                      </ul>
+                    </CategoryContent>
                   </CategoryContentContainer>
                 </CategoryCard>
               </CategoryContainer>
