@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import styled from 'styled-components';
 
 import Screen from '../../Screen';
-import NextButton from '../../../components/UI/Buttons/NextButton/NextButton';
 
 import CardRedommendation from '../../../components/CardRecommendation/CardRecommendation';
-
-const NextButtonContainer = styled.div`
-  margin-top: 30px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-`;
 
 class ExpertCardRecommendationScreen extends Component {
   handleNext = e => {
@@ -26,10 +15,6 @@ class ExpertCardRecommendationScreen extends Component {
       <Screen>
         <div className="container">
           <CardRedommendation mode={'expert'} />
-
-          <NextButtonContainer>
-            <NextButton disabled={false} handleNext={this.handleNext} />
-          </NextButtonContainer>
         </div>
       </Screen>
     );

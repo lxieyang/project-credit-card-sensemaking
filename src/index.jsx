@@ -15,11 +15,13 @@ import { Provider } from 'react-redux';
 import quizReducer from './store/reducers/quiz';
 import userTypeReducer from './store/reducers/userTypes';
 import benefitsReducer from './store/reducers/benefits';
+import cardChoiceReducer from './store/reducers/cardChoice';
 
 const rootReducer = combineReducers({
   quiz: quizReducer,
   userType: userTypeReducer,
-  benefits: benefitsReducer
+  benefits: benefitsReducer,
+  cardChoice: cardChoiceReducer
 });
 
 const logger = store => {

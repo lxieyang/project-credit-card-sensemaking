@@ -6,7 +6,8 @@ const appRoutes = {
   noviceChooseBenefitCategory: '/novice/choosebenefit',
   noviceCardRecommendation: '/novice/cardrecommendation',
   expertChooseBenefitCategory: '/expert/choosebenefit',
-  expertCardRecommendation: '/expert/cardrecommendation'
+  expertCardRecommendation: '/expert/cardrecommendation',
+  summary: '/summary'
 };
 
 export default appRoutes;

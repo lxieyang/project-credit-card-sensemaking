@@ -16,7 +16,7 @@ class NextButton extends Component {
         disabled={this.props.disabled}
         onClick={e => this.props.handleNext(e)}
       >
-        Next
+        {this.props.title ? this.props.title : 'Next'}
       </button>
     );
   }

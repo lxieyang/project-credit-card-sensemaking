@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import { sortBy, reverse } from 'lodash';
+import NextButton from '../UI/Buttons/NextButton/NextButton';
 import {
   benefitCategories,
   creditScoreRangesDetail
 } from '../../shared/constants';
 import cardData from '../../shared/cardData';
 import OverAllIcon from '../../assets/images/card-rec-overall.png';
+import MyChoice from '../../assets/images/my-choice.png';
 
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
+
+import { withStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import appRoutes from '../../shared/appRoutes';
 
 const PromptContainer = styled.div`
   margin-top: 30px;
@@ -61,6 +68,7 @@ const BenefitCardTitleContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
 `;
 
 const CardsContainerWrapper = styled.div`
@@ -87,6 +95,13 @@ const CardContainer = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-flow: column;
+
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const CardImageContainer = styled.div`
@@ -98,10 +113,23 @@ const CardImageContainer = styled.div`
 `;
 
 const CardImage = styled.img`
-  max-height: 80%;
-  max-width: 95%;
+  height: 120px;
   width: auto;
-  height: auto;
+`;
+
+const CardMyChoice = styled.img`
+  z-index: 5000;
+  width: 60px;
+
+  border-radius: 6px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+  position: absolute;
+  top: 10px;
+  left: -20px;
+
+  transform: rotateZ(-45deg);
 `;
 
 const CardNameContainer = styled.div`
@@ -112,9 +140,127 @@ const CardNameContainer = styled.div`
   align-items: center;
 `;
 
+function getModalStyle() {
+  const top = 50;
+  const left = 50;
+
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`
+  };
+}
+
+const styles = theme => ({
+  paper: {
+    position: 'absolute',
+    width: '600px',
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing.unit * 4,
+    outline: 'none'
+  }
+});
+
+const ModalContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+`;
+
+const ModalCardImageContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalCardImage = styled.img`
+  height: 250px;
+  width: auto;
+`;
+
+const ModalMyChoice = styled.img`
+  z-index: 500;
+  width: 100px;
+
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+  position: absolute;
+  top: 10px;
+  left: -35px;
+
+  transform: rotateZ(-45deg);
+`;
+
+const ModalCardName = styled.div`
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+`;
+
+const ModalCardBank = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalCardInfoContainer = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalCardSelectContainer = styled.div`
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+`;
+
+const NextButtonContainer = styled.div`
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+`;
+
 class CardRecommendation extends Component {
   state = {
-    benefitCategoriesToDisplay: []
+    benefitCategoriesToDisplay: [],
+    open: false,
+    cardInModal: null
+  };
+
+  handleOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
+    this.setCardInModal(null);
+  };
+
+  setCardInModal = card => {
+    this.setState({ cardInModal: card });
+  };
+
+  handleCardClicked = (event, card) => {
+    this.setCardInModal(card);
+    this.handleOpen();
   };
 
   componentDidMount() {
@@ -184,14 +330,18 @@ class CardRecommendation extends Component {
       benefitCategoriesToDisplay[i]['sortedCards'] = sortedCards;
     }
 
-    console.log(benefitCategoriesToDisplay);
+    // console.log(benefitCategoriesToDisplay);
 
     this.setState({ benefitCategoriesToDisplay });
   }
 
+  handleNext = e => {
+    this.props.history.push(appRoutes.summary);
+  };
+
   render() {
-    const { benefitCategoriesToDisplay } = this.state;
-    const { mode } = this.props;
+    const { benefitCategoriesToDisplay, cardInModal } = this.state;
+    const { classes, mode, chosenCard } = this.props;
 
     return (
       <React.Fragment>
@@ -219,9 +369,17 @@ class CardRecommendation extends Component {
                   <CardsContainer>
                     {cat.sortedCards.map((card, idx) => {
                       return (
-                        <CardContainer key={idx}>
+                        <CardContainer
+                          key={idx}
+                          onClick={e => this.handleCardClicked(e, card)}
+                        >
                           <CardImageContainer>
-                            <CardImage src={card.card_img_link} />
+                            <div style={{ position: 'relative' }}>
+                              <CardImage src={card.card_img_link} />
+                              {chosenCard && chosenCard === card.name && (
+                                <CardMyChoice src={MyChoice} />
+                              )}
+                            </div>
                           </CardImageContainer>
                           <CardNameContainer>{card.name}</CardNameContainer>
                         </CardContainer>
@@ -233,6 +391,84 @@ class CardRecommendation extends Component {
             );
           })}
         </RecommendationContainer>
+
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+        >
+          {cardInModal && (
+            <div style={getModalStyle()} className={classes.paper}>
+              <ModalContainer>
+                <ModalCardImageContainer>
+                  <div style={{ position: 'relative' }}>
+                    <ModalCardImage src={cardInModal.card_img_link} />
+                    {chosenCard && chosenCard === cardInModal.name && (
+                      <ModalMyChoice src={MyChoice} />
+                    )}
+                  </div>
+                </ModalCardImageContainer>
+                <ModalCardName>{cardInModal.name}</ModalCardName>
+                <ModalCardBank>(issued by {cardInModal.bank})</ModalCardBank>
+                <ModalCardInfoContainer>
+                  <div>
+                    <p>
+                      Minimum annual income needed for application:{' '}
+                      <strong>
+                        $
+                        {parseInt(
+                          cardInModal.annual_income_min
+                        ).toLocaleString()}
+                      </strong>
+                    </p>
+
+                    {cardInModal.annual_fee > 0 ? (
+                      <p>This card does not have an annual fee. 😍</p>
+                    ) : (
+                      <p>This card has an annual fee. 😧</p>
+                    )}
+
+                    <p>
+                      Want to apply? Click{' '}
+                      <a href={cardInModal.apply_link} target="_blank">
+                        here
+                      </a>
+                      !
+                    </p>
+                  </div>
+                </ModalCardInfoContainer>
+                <ModalCardSelectContainer>
+                  {chosenCard && chosenCard === cardInModal.name ? (
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger btn-lg btn-block"
+                      onClick={() => this.props.setChosenCard(null)}
+                    >
+                      I don't want to choose this card any more!
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn btn-outline-success btn-lg btn-block"
+                      onClick={() => this.props.setChosenCard(cardInModal.name)}
+                    >
+                      I'd like to choose this card!
+                    </button>
+                  )}
+                </ModalCardSelectContainer>
+              </ModalContainer>
+            </div>
+          )}
+        </Modal>
+
+        <NextButtonContainer>
+          <NextButton
+            // disabled={chosenCard !== null}
+            handleNext={this.handleNext}
+            title={'Get a Summary of This Session'}
+          />
+        </NextButtonContainer>
       </React.Fragment>
     );
   }
@@ -241,11 +477,18 @@ class CardRecommendation extends Component {
 const mapStateToProps = state => {
   return {
     chosenBenefits: state.benefits.chosenBenefits,
-    creditScoreRage: state.quiz.creditScoreRage
+    creditScoreRage: state.quiz.creditScoreRage,
+    chosenCard: state.cardChoice.chosenCard
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setChosenCard: val => dispatch(actionCreators.setChosenCard(val))
   };
 };
 
 export default connect(
   mapStateToProps,
-  null
-)(CardRecommendation);
+  mapDispatchToProps
+)(withRouter(withStyles(styles)(CardRecommendation)));

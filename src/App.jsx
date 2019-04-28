@@ -11,6 +11,7 @@ import NoviceChooseCategoriesScreen from './Screens/NoviceScreens/NoviceChooseCa
 import NoviceCardRecommendationScreen from './Screens//NoviceScreens/NoviceCardRecommendationScreen/NoviceCardRecommendationScreen';
 import ExpertChooseCategoriesScreen from './Screens/ExpertScreens/ExpertChooseCategoriesScreen/ExpertChooseCategoriesScreen';
 import ExpertCardRecommendationScreen from './Screens/ExpertScreens/ExpertCardRecommendationScreen/ExpertCardRecommendationScreen';
+import SummaryScreen from './Screens/SummaryScreen/SummaryScreen';
 
 import './shared/appRoutes';
 
@@ -75,6 +76,7 @@ function App() {
               path={appRoutes.expertCardRecommendation}
               component={ExpertCardRecommendationScreen}
             />
+            <Route path={appRoutes.summary} component={SummaryScreen} />
           </AnimatedSwitch>
         )}
       />
