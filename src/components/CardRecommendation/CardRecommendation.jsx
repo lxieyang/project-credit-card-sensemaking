@@ -319,13 +319,15 @@ class CardRecommendation extends Component {
     for (let i = 0; i < benefitCategoriesToDisplay.length; i++) {
       let codename = benefitCategoriesToDisplay[i].codename;
       let cardToSort = filteredCards;
-      if (codename !== 'overall') {
-        // one of the categories
-        cardToSort = filteredCards.filter(card => card[codename] > 0);
-      }
       let sortedCards = reverse(
         sortBy(cardToSort, ['totalScore', 'name', 'bank'])
       );
+      if (codename !== 'overall') {
+        // one of the categories
+        cardToSort = filteredCards.filter(card => card[codename] > 0);
+        sortedCards = reverse(sortBy(cardToSort, [codename, 'name', 'bank']));
+      }
+
       // console.log(sortedCards);
       benefitCategoriesToDisplay[i]['sortedCards'] = sortedCards;
     }
