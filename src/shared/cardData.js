@@ -237,7 +237,7 @@ export default {
     apply_link:
       'https://icm.aexp-static.com/Internet/Acquisition/US_en/AppContent/OneSite/category/cardarts/marriott-bonvoy-brilliant-card.png',
     card_img_link:
-      'https://www.americanexpress.com/us/credit-cards/card-application/apply/marriott-bonvoy-brilliant-card/36182-10-0?pmccode=1150&intlink=US-Acq-Shop-Consumer-VAC-CardMember-Apply-MarriottBonvoyBrilliant'
+      'https://icm.aexp-static.com/Internet/Acquisition/US_en/AppContent/ContentConfiguration/CCSG/Common/Redesign/RWD/images/marriott_brilliant_prem_di_no_cm_480x304.png'
   },
   'American Express® Green Card': {
     bank: 'American Express',

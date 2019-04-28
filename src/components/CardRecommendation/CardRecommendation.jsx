@@ -414,7 +414,7 @@ class CardRecommendation extends Component {
                 <ModalCardInfoContainer>
                   <div>
                     <p>
-                      Minimum annual income needed for application:{' '}
+                      Recommended annual income needed for application:{' '}
                       <strong>
                         $
                         {parseInt(
