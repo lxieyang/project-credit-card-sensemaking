@@ -397,7 +397,7 @@ export default {
     apply_link:
       'https://creditcards.chase.com/balance-transfer-credit-cards/chase-slate?iCELL=61FY',
     card_img_link:
-      'https://creditcards.chase.com/balance-transfer-credit-cards/chase-slate?iCELL=61FY'
+      'https://creditcards.chase.com/K-Marketplace/images/cardart/slate_card_alt.png'
   },
   'IHG® Rewards Club Premier Credit Card': {
     bank: 'JPMorgan Chase',
