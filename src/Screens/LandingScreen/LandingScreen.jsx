@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../../assets//images/credit-card-transparent-background.png';
+import Logo from '../../assets/images/credit-card-transparent-background.png';
+import GithubIcon from '../../assets/images/github-icon.png';
 import styled from 'styled-components';
 
 import appRoutes from '../../shared/appRoutes';
@@ -61,6 +62,13 @@ const StartButtonContainer = styled.div`
   }
 `;
 
+const FooterContainer = styled.div`
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
 class LandingScreen extends Component {
   componentDidMount() {
     document.body.classList.add('LandingPageBackgroundColor');
@@ -87,6 +95,23 @@ class LandingScreen extends Component {
             Get Started
           </Link>
         </StartButtonContainer>
+        <FooterContainer>
+          <a
+            href={`https://github.com/lxieyang/project-credit-card-sensemaking`}
+            target="_blank"
+          >
+            <img
+              style={{
+                width: '30px',
+                height: '30px',
+                borderRadius: '50%',
+                boxShadow: `0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+            0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12)`
+              }}
+              src={GithubIcon}
+            />
+          </a>
+        </FooterContainer>
       </div>
     );
   }
