@@ -288,7 +288,7 @@ class CardRecommendation extends Component {
       .map(card => {
         return {
           ...card,
-          annual_fee: card.annual_fee === 'yes' ? 0 : 10,
+          annual_fee: card.annual_fee === 'yes' ? 0 : 3,
           bonus_purchase:
             card.bonus_purchase === 'large'
               ? 10
