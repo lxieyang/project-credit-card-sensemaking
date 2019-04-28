@@ -133,7 +133,7 @@ export default {
     bonus_purchase: 'large',
     annual_fee: 'yes',
     credit_min: 720,
-    annual_income_min: '25,000',
+    annual_income_min: '25000',
     apply_link:
       'https://www.americanexpress.com/us/credit-cards/card-application/apply/gold-card/36182-10-0?pmccode=784&intlink=US-Acq-Shop-Consumer-VAC-CardMember-Apply-GoldCard',
     card_img_link:
@@ -313,7 +313,7 @@ export default {
     bonus_purchase: 'large',
     annual_fee: 'yes',
     credit_min: 720,
-    annual_income_min: '25,000',
+    annual_income_min: '25000',
     apply_link:
       'https://applynow.chase.com/FlexAppWeb/renderApp.do?SPID=FYQ8&CELL=61FY&PROMO=DF01',
     card_img_link:
@@ -333,7 +333,7 @@ export default {
     bonus_purchase: 'large',
     annual_fee: 'yes',
     credit_min: 750,
-    annual_income_min: '40,000',
+    annual_income_min: '40000',
     apply_link:
       'https://applynow.chase.com/FlexAppWeb/renderApp.do?SPID=FXMT&CELL=61DS&PROMO=DF01',
     card_img_link:
@@ -353,7 +353,7 @@ export default {
     bonus_purchase: 'large',
     annual_fee: 'yes',
     credit_min: 720,
-    annual_income_min: '25,000',
+    annual_income_min: '25000',
     apply_link:
       'https://applynow.chase.com/FlexAppWeb/renderApp.do?SPID=FY2G&CELL=6TKV&PROMO=DF01',
     card_img_link:
@@ -373,7 +373,7 @@ export default {
     bonus_purchase: 'large',
     annual_fee: 'yes',
     credit_min: 690,
-    annual_income_min: '25,000',
+    annual_income_min: '25000',
     apply_link:
       'https://creditcards.chase.com/travel-credit-cards/united-explorer?iCELL=61FY',
     card_img_link:
