@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { benefitCategories } from '../../shared/constants';
 import CheckCircle from 'mdi-material-ui/CheckCircle';
+import HelpCircleOutline from 'mdi-material-ui/HelpCircleOutline';
 
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/index';
+
+import { withStyles } from '@material-ui/core/styles';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const PromptContainer = styled.div`
   margin-top: 30px;
@@ -42,6 +46,25 @@ const BenefitCardChosenContainer = styled.div`
   justify-content: center;
   align-items: center;
   color: #28a745;
+  transition: all 0.1s ease-in;
+`;
+
+const BenefitCardQuestionMarkContainer = styled.div`
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(220, 220, 220);
+  transition: all 0.1s ease-in;
+  cursor: default;
+
+  &:hover {
+    color: rgb(180, 180, 180);
+  }
 `;
 
 const BenefitCardIconContainer = styled.div`
@@ -67,6 +90,19 @@ const BenefitCardTitleContainer = styled.div`
   align-items: center;
 `;
 
+const styles = theme => ({
+  htmlTooltip: {
+    // backgroundColor: '#f5f5f9',
+    // color: 'rgba(0, 0, 0, 0.87)',
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(14),
+    border: '1px solid #dadde9',
+    '& b': {
+      fontWeight: theme.typography.fontWeightMedium
+    }
+  }
+});
+
 class ChooseBenefits extends Component {
   // state = {
   //   chosenBenefits: benefitCategories.reduce((obj, v) => {
@@ -83,7 +119,7 @@ class ChooseBenefits extends Component {
   };
 
   render() {
-    const { chosenBenefits } = this.props;
+    const { chosenBenefits, mode } = this.props;
 
     return (
       <React.Fragment>
@@ -108,6 +144,32 @@ class ChooseBenefits extends Component {
                   <BenefitCardChosenContainer>
                     <CheckCircle sytle={{ fontSize: 22 }} />
                   </BenefitCardChosenContainer>
+                )}
+
+                {mode === 'novice' && (
+                  <Tooltip
+                    classes={{
+                      tooltip: this.props.classes.htmlTooltip
+                    }}
+                    title={
+                      <React.Fragment>
+                        <ul
+                          style={{
+                            paddingLeft: '1rem'
+                            // listStyle: 'none'
+                          }}
+                        >
+                          {cat.description.map((des, idx) => (
+                            <li key={idx}>{des}</li>
+                          ))}
+                        </ul>
+                      </React.Fragment>
+                    }
+                  >
+                    <BenefitCardQuestionMarkContainer>
+                      <HelpCircleOutline sytle={{ fontSize: 22 }} />
+                    </BenefitCardQuestionMarkContainer>
+                  </Tooltip>
                 )}
 
                 <BenefitCardIconContainer>
@@ -140,4 +202,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChooseBenefits);
+)(withStyles(styles)(ChooseBenefits));

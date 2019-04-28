@@ -33,27 +33,39 @@ export const creditScoreRanges = [
 export const benefitCategories = [
   {
     title: 'Cash Back',
-    icon: CashBackIcon
+    icon: CashBackIcon,
+    description: ['Earn 1%-2% bonus every time you make a purchase.']
   },
   {
     title: 'Gas',
-    icon: GasIcon
+    icon: GasIcon,
+    description: ['Earn increased bonus when you pay for gas.']
   },
   {
     title: 'Grocery',
-    icon: GroceryIcon
+    icon: GroceryIcon,
+    description: [
+      'Earn increased bonus when you use your card at supermarkets or grocery stores.'
+    ]
   },
   {
     title: 'Travel Rewards',
-    icon: TravelIcon
+    icon: TravelIcon,
+    description: [
+      'Earn increased bonus when you pay for airfare, hotel, etc.',
+      'Benefits might include Global Entry / TSA Pre credit, lounge access, rental insurance coverage, etc.',
+      'Airline & Hotel co-branded options available.'
+    ]
   },
   {
     title: 'Balance Transfer',
-    icon: BalanceTransferIcon
+    icon: BalanceTransferIcon,
+    description: ['Cards good for transfering balance to.']
   },
   {
     title: 'Credit Building',
-    icon: CreditBuilding
+    icon: CreditBuilding,
+    description: ['Cards good for building or re-building your credit history.']
   },
   // {
   //   title: 'Co-branded Travel',
@@ -61,15 +73,26 @@ export const benefitCategories = [
   // },
   {
     title: 'Dining',
-    icon: DiningIcon
+    icon: DiningIcon,
+    description: ['Earn increased bonus when you use your card at restaurants.']
   },
   {
     title: 'Sign-up Bonuses',
-    icon: SignupBonus
+    icon: SignupBonus,
+    description: [
+      'One-time bonus earned after spending certain amount within the first three months after opening the card.',
+      'Usually $100 back after $500 spent.',
+      'Or $500 back after $3000 spent.'
+    ]
   },
   {
     title: 'Student',
-    icon: StudentIcon
+    icon: StudentIcon,
+    description: [
+      'Higher chances to get approved when you are a student.',
+      'Good for building credit in college.',
+      'Student benefits such as bonus when you reach certain GPA.'
+    ]
   },
   // {
   //   title: '0% APR',
@@ -77,6 +100,7 @@ export const benefitCategories = [
   // },
   {
     title: 'No Annual Fee',
-    icon: NoAnnualFeeIcon
+    icon: NoAnnualFeeIcon,
+    description: ['Most card don’t charge an annual fee.']
   }
 ];
