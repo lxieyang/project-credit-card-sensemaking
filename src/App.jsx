@@ -7,6 +7,7 @@ import LandingScreen from './Screens/LandingScreen/LandingScreen';
 import QuizScreen from './Screens/QuizScreen/QuizScreen';
 import UserCategoryRecScreen from './Screens/UserCategoryRecScreen/UserCategoryRecScreen';
 import NoviceEducationScreen from './Screens/NoviceScreens/NoviceEducationScreen/NoviceEducationScreen';
+import NoviceChooseCategoriesScreen from './Screens/NoviceScreens/NoviceChooseCategoriesScreen/NoviceChooseCategoriesScreen';
 import ExpertChooseCategoriesScreen from './Screens/ExpertScreens/ExpertChooseCategoriesScreen/ExpertChooseCategoriesScreen';
 
 import './shared/appRoutes';
@@ -55,6 +56,10 @@ function App() {
             <Route
               path={appRoutes.noviceEducation}
               component={NoviceEducationScreen}
+            />
+            <Route
+              path={appRoutes.noviceChooseBenefitCategory}
+              component={NoviceChooseCategoriesScreen}
             />
             <Route
               path={appRoutes.expertChooseBenefitCategory}
