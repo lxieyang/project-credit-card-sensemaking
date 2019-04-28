@@ -9,6 +9,7 @@
     "glamor": "^2.20.40",
     "lodash": "^4.17.11",
     "mdi-material-ui": "^5.11.0",
+    "ordinal": "^1.0.2",
     "query-string": "^6.4.2",
     "react": "^16.8.6",
     "react-document-title": "^2.0.3",

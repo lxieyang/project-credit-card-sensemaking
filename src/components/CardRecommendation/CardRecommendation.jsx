@@ -63,6 +63,55 @@ const BenefitCardTitleContainer = styled.div`
   align-items: center;
 `;
 
+const CardsContainerWrapper = styled.div`
+  padding: 20px 0px;
+  flex: 1;
+  height: 100%;
+  overflow-x: hidden;
+`;
+
+const CardsContainer = styled.div`
+  display: flex;
+  overflow-x: hidden;
+
+  &:hover {
+    overflow-x: auto;
+  }
+`;
+
+const CardContainer = styled.div`
+  flex-shrink: 0;
+  height: 100%;
+  /* width: 300px; */
+  margin: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+`;
+
+const CardImageContainer = styled.div`
+  width: 100%;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CardImage = styled.img`
+  max-height: 80%;
+  max-width: 95%;
+  width: auto;
+  height: auto;
+`;
+
+const CardNameContainer = styled.div`
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 class CardRecommendation extends Component {
   state = {
     benefitCategoriesToDisplay: []
@@ -165,6 +214,21 @@ class CardRecommendation extends Component {
                     Best {cat.title}
                   </BenefitCardTitleContainer>
                 </BenefitTitleContainer>
+
+                <CardsContainerWrapper>
+                  <CardsContainer>
+                    {cat.sortedCards.map((card, idx) => {
+                      return (
+                        <CardContainer key={idx}>
+                          <CardImageContainer>
+                            <CardImage src={card.card_img_link} />
+                          </CardImageContainer>
+                          <CardNameContainer>{card.name}</CardNameContainer>
+                        </CardContainer>
+                      );
+                    })}
+                  </CardsContainer>
+                </CardsContainerWrapper>
               </BenefitCategoryContainer>
             );
           })}
