@@ -30,6 +30,15 @@ export const creditScoreRanges = [
   '800 - 850'
 ];
 
+export const creditScoreRangesDetail = [
+  [-1,-1],
+  [300, 579],
+  [580, 689],
+  [690, 719],
+  [720, 799],
+  [800, 850]
+]
+
 export const benefitCategories = [
   {
     title: 'Cash Back',

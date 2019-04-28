@@ -16,7 +16,7 @@ const PromptContainer = styled.div`
   justify-content: center;
 `;
 
-const BenefitSContainer = styled.div`
+const BenefitsContainer = styled.div`
   margin-top: 30px;
   display: flex;
   justify-content: center;
@@ -127,7 +127,7 @@ class ChooseBenefits extends Component {
           <h3>Select which benefits are the most important to you:</h3>
         </PromptContainer>
 
-        <BenefitSContainer>
+        <BenefitsContainer>
           {benefitCategories.map((cat, idx) => {
             return (
               <BenefitCard
@@ -181,7 +181,7 @@ class ChooseBenefits extends Component {
               </BenefitCard>
             );
           })}
-        </BenefitSContainer>
+        </BenefitsContainer>
       </React.Fragment>
     );
   }
