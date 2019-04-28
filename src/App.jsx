@@ -8,7 +8,9 @@ import QuizScreen from './Screens/QuizScreen/QuizScreen';
 import UserCategoryRecScreen from './Screens/UserCategoryRecScreen/UserCategoryRecScreen';
 import NoviceEducationScreen from './Screens/NoviceScreens/NoviceEducationScreen/NoviceEducationScreen';
 import NoviceChooseCategoriesScreen from './Screens/NoviceScreens/NoviceChooseCategoriesScreen/NoviceChooseCategoriesScreen';
+import NoviceCardRecommendationScreen from './Screens//NoviceScreens/NoviceCardRecommendationScreen/NoviceCardRecommendationScreen';
 import ExpertChooseCategoriesScreen from './Screens/ExpertScreens/ExpertChooseCategoriesScreen/ExpertChooseCategoriesScreen';
+import ExpertCardRecommendationScreen from './Screens/ExpertScreens/ExpertCardRecommendationScreen/ExpertCardRecommendationScreen';
 
 import './shared/appRoutes';
 
@@ -62,8 +64,16 @@ function App() {
               component={NoviceChooseCategoriesScreen}
             />
             <Route
+              path={appRoutes.noviceCardRecommendation}
+              component={NoviceCardRecommendationScreen}
+            />
+            <Route
               path={appRoutes.expertChooseBenefitCategory}
               component={ExpertChooseCategoriesScreen}
+            />
+            <Route
+              path={appRoutes.expertCardRecommendation}
+              component={ExpertCardRecommendationScreen}
             />
           </AnimatedSwitch>
         )}

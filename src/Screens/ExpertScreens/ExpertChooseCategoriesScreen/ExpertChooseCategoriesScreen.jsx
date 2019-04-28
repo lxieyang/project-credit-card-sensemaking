@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
+
 import ChooseBenefits from '../../../components/ChooseBenefits/ChooseBenefits';
 
-import styled from 'styled-components';
-// import appRoutes from '../../../shared/appRoutes';
+import appRoutes from '../../../shared/appRoutes';
 
 import Screen from '../../Screen';
 import NextButton from '../../../components/UI/Buttons/NextButton/NextButton';
@@ -19,7 +20,7 @@ const NextButtonContainer = styled.div`
 
 class ExpertChooseCategoriesScreen extends Component {
   handleNext = e => {
-    console.log(e);
+    this.props.history.push(appRoutes.expertCardRecommendation);
   };
 
   render() {

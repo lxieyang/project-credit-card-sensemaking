@@ -4,7 +4,9 @@ const appRoutes = {
   userTypeRecommendation: '/usertype',
   noviceEducation: '/novice/education',
   noviceChooseBenefitCategory: '/novice/choosebenefit',
-  expertChooseBenefitCategory: '/expert/choosebenefit'
+  noviceCardRecommendation: '/novice/cardrecommendation',
+  expertChooseBenefitCategory: '/expert/choosebenefit',
+  expertCardRecommendation: '/expert/cardrecommendation'
 };
 
 export default appRoutes;
